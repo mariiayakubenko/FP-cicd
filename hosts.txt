@@ -1,0 +1,26 @@
+[webservers]
+# testserver ansible_host=127.0.0.1
+
+#[worker]
+#ansible_final_project ansible_host=127.0.0.1
+
+[devtools]
+devtools_final_project ansible_host=10.0.0.192
+
+[ci]
+ci_final_project ansible_host=10.0.13.247
+
+[qa]
+qa_final_project ansible_host=10.0.0.12
+
+[docker]
+docker_final_project ansible_host=10.0.4.40
+
+[deploy:children]
+qa
+ci
+docker
+
+[deploy_artifact:children]
+qa
+ci
